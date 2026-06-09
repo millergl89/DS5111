@@ -1,4 +1,14 @@
-default:
+env:
+	python3 -m venv env
+
+update: env
+	. env/bin/activate && pip install -r requirements.txt
+
+lint:
+	. env/bin/activate && pylint bin/clean_ids.py
+
+test: lint
+	. env/bin/activate && pytest -vv testsdefault:
 	@cat makefile
 
 env:
