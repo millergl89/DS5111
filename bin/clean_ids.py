@@ -1,47 +1,35 @@
 #!/usr/bin/env python3
+"""Clean YouTube IDs from standard input."""
 
-import sys
 import logging
+import sys
 
-logging.basicConfig(
-    filename="pipeline_audit.log",
-    level=logging.INFO
+logging.basicConfig(level=logging.INFO)
+
+VALID_YOUTUBE_ID_CHARS = (
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    "abcdefghijklmnopqrstuvwxyz"
+    "0123456789-_"
 )
 
-allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
 
-for line in sys.stdin:
-    youtube_id = line.strip()
-
-    if len(youtube_id) == 11 and all(char in allowed for char in youtube_id):
-        sys.stdout.write(youtube_id + "\n")
-    else:
-        logging.info(f"Invalid ID: {youtube_id}")
-#!/usr/bin/env python3
-
-import sys
-import logging
-
-logging.basicConfig(
-    level=logging.INFO
-)
-
-def main():
-    valid_youtube_id_chars = (
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "abcdefghijklmnopqrstuvwxyz"
-        "0123456789-_"
+def is_valid_youtube_id(youtube_id):
+    """Return True when the value is a valid YouTube video ID."""
+    return len(youtube_id) == 11 and all(
+        char in VALID_YOUTUBE_ID_CHARS for char in youtube_id
     )
 
+
+def main():
+    """Read stdin and print only valid YouTube IDs."""
     for line in sys.stdin:
         youtube_id = line.strip()
 
-        if len(youtube_id) == 11 and all(
-            char in valid_youtube_id_chars for char in youtube_id
-        ):
+        if is_valid_youtube_id(youtube_id):
             sys.stdout.write(youtube_id + "\n")
         else:
-            logging.info(f"Invalid ID: {youtube_id}")
+            logging.info("Invalid ID: %s", youtube_id)
+
 
 if __name__ == "__main__":
     main()
