@@ -10,6 +10,7 @@ update: env
 
 lint:
 	. env/bin/activate && pylint bin/clean_ids.py
+	. env/bin/activate && pylint bin/extract_transcripts.py
 
 test: lint
 	. env/bin/activate && pytest -vv tests
