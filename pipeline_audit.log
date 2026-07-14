@@ -1,9 +1,0 @@
-INFO:root:Invalid ID: abcd
-INFO:root:Invalid ID: 1234
-INFO:root:Invalid ID: 2145
-2026-06-30 00:33:53,103 INFO:AFC is enabled with max remote calls: 10.
-2026-06-30 00:33:53,360 INFO:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 404 Not Found"
-2026-06-30 00:36:03,665 INFO:AFC is enabled with max remote calls: 10.
-2026-06-30 00:36:05,949 INFO:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
-2026-06-30 00:36:05,951 INFO:AFC is enabled with max remote calls: 10.
-2026-06-30 00:36:08,570 INFO:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
