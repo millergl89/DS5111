@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Enrich transcript records using Gemini structured output."""
 
-import json
 import logging
 import os
 import sys
