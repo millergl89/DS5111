@@ -31,6 +31,18 @@ class GeminiStrategy(LLMStrategy):
         """Not yet implemented; logic will be ported in the next step."""
         raise NotImplementedError
 
+class MockLLMStrategy:
+    """Fake strategy for testing TranscriptEnricher without a real API."""
+
+    def enrich(self, record: dict) -> dict:
+        """Return predictable enrichment data for testing."""
+        return {
+            "video_id": record["video_id"],
+            "cleaned_text": record["raw_text"].strip(),
+            "tech_terms": ["Python"],
+            "book_names": [],
+        }
+
 
 class TranscriptEnricher:
     """Orchestrates the enrichment pipeline using an injected LLM backend."""
