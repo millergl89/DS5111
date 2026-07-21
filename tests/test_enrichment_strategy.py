@@ -1,3 +1,4 @@
+"""Tests for TranscriptEnricher using a mock LLM strategy"""
 import io
 import json
 import sys
